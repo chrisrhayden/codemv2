@@ -28,5 +28,7 @@ router.register(r'annotations', AnnotationViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^detail/', base_view, name="base_view")
+    url(r'^detail/', base_view, name="base_view"),
+    url(r'^api/v1/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
