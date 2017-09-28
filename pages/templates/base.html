@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  <!-- vendor/skell -->
+  <link rel='stylesheet' type='text/css' href='static/normalize.css'>
+
+  {% block vendor %}{% endblock %}
+
+  <!-- my style -->
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+
+<body>
+  {% block first_block %}
+  {% endblock %}
+</body>
+
+  <!-- vendor scripts -->
+  <script
+    src="http://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous">
+  </script>
+  <!-- my scripts -->
+  <script src='static/main.js'></script>
+</html>
+
