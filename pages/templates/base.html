@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+  {% load static %}
   <meta charset="UTF-8">
   <title>{% block title %}{% endblock %}</title>
   <!-- vendor/skell -->
-  <link rel='stylesheet' type='text/css' href='static/normalize.css'>
+  <link rel="stylesheet" type="text/css" href="static/normalize.css">
 
   {% block vendor %}{% endblock %}
 
   <!-- my style -->
-  <link rel="stylesheet" type="text/css" href="static/style.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
+  <section id="first-section">
+  </section>
   {% block first_block %}
   {% endblock %}
 </body>
@@ -24,6 +27,6 @@
     crossorigin="anonymous">
   </script>
   <!-- my scripts -->
-  <script src='static/main.js'></script>
+  <script src="{% static 'js/snip.js' %}"></script>
 </html>
 
