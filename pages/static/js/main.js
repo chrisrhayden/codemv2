@@ -24,20 +24,6 @@ $(document).ready(() => {
 
 
     function getAno() {
-        /*
-        $.ajax({
-            url: '/api/v1/annotations/1/',
-            method: 'GET',
-            success: (resp) => {
-                console.log(resp);
-                anoFactory(resp);
-            },
-            error: (err) => {
-                alert(err);
-            }
-        });
-        */
-
         let myUrl = '/api/v1/annotations/1/';
         let myHeaders = new Headers();
         let myInit = {
@@ -106,25 +92,20 @@ $(document).ready(() => {
 
 
     function getSnip() {
+        /* use fetch to hit rest api,
+         *
+         * promose snipFactory to make the normal code table,
+         *
+         * promose anoFactory to make and add an annotation
+         *
+         * TODO fix anoFactory to make all anos for snip */
+
+        // the number of the snip to get
         let to_get = document.URL.split('/').pop();
 
-        /*
-        $.ajax({
-            url: `/api/v1/snippets/${to_get}/`,
-            method: 'GET',
-            success: (resp) => {
-                snipFactory(resp);
-                getAno();
-            },
-            error: (err) => {
-                alert(err);
-            }
-        });*/
-
+        // for fetch url and init
         let myUrl = `/api/v1/snippets/${to_get}/`;
-
         let myHeaders = new Headers();
-
         let myInit = {
             method: 'GET',
             headers: myHeaders,
@@ -133,10 +114,13 @@ $(document).ready(() => {
         fetch(myUrl, myInit).then((resp) => {
             return resp.json();
         }).then((data) => {
+            // make and add table
             snipFactory(data);
         }).then(() => {
+            // then make and add ano
             getAno();
         }).then(() => {
+            // now init highlightjs with code on page
             $('pre code').each(function(i, block) {
                 hljs.highlightBlock(block);
             });
@@ -145,9 +129,6 @@ $(document).ready(() => {
         });
     }
 
-
+    // start
     getSnip();
-
-
-
 });
