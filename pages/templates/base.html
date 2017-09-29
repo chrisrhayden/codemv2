@@ -5,7 +5,12 @@
   <meta charset="UTF-8">
   <title>{% block title %}{% endblock %}</title>
   <!-- vendor/skell -->
-  <link rel="stylesheet" type="text/css" href="static/normalize.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/normalize.css' %}">
+  <link rel="stylesheet" type"text/css" href="{% static 'vendor/atelier-dune-dark.css' %}">
+  <script src="{% static 'vendor/highlight.pack.js' %}"></script>
+  <!--
+  <script>hljs.initHighlightingOnLoad();</script>
+  -->
 
   {% block vendor %}{% endblock %}
 

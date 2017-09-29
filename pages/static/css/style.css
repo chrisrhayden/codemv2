@@ -1,0 +1,22 @@
+
+
+#first-section {
+    background-color: #20201d;
+    max-width: 900px;
+}
+
+.counter {
+    width: 30px;
+}
+
+table {
+    line-height: 0px;
+    display: inline;
+    width: 30px;
+    
+    background-color: #20201d;
+}
+
+pre {
+    margin: 0;
+}

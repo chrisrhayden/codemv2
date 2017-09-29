@@ -2,21 +2,19 @@ module.exports = {
     "env": {
         "browser": true,
         "es6": true,
-        "jquery": true,
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
-        "sourceType": "module"
+        "jquery": true
     },
     "plugins": [
-        "react",
         "dollar-sign"
     ],
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
     "rules": {
+        "dollar-sign/dollar-sign": [
+            2, "ignoreProperties"
+        ],
         "indent": [
             "error",
             4
@@ -32,9 +30,6 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ],
-        "dollar-sign/dollar-sign": [
-            2, "ignoreProperties"
         ]
     }
 };

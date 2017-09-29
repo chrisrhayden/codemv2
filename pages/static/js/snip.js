@@ -13,7 +13,7 @@ $(document).ready(() => {
 
         let tdone = $('<td>').text(' ');
         let tdtwo = $('<td>');
-        tdtwo.append(pre)
+        tdtwo.append(pre);
 
         row.append(tdone);
         row.append(tdtwo);
@@ -39,11 +39,11 @@ $(document).ready(() => {
         */
 
         let myUrl = '/api/v1/annotations/1/';
-        let myHeaders = new Headers()
+        let myHeaders = new Headers();
         let myInit = {
             method: 'GET',
             headers: myHeaders
-        }
+        };
 
         fetch(myUrl, myInit).then((resp) => {
             return resp.json();
@@ -68,7 +68,9 @@ $(document).ready(() => {
                 'data-line': counter,
                 'id': `line-${counter}`
             });
-            row.append($('<td>').text(counter));
+
+            let tdone = $('<td>', {'class': 'counter'}).text(counter);
+            row.append(tdone)
 
             let tdtwo = $('<td>');
 
@@ -85,7 +87,7 @@ $(document).ready(() => {
 
             row.on('click', (evt) => {
                 let prev = $(evt.target).parents('tr').prev();
-                console.log('prev')
+                console.log('prev');
                 console.log(prev);
 
                 if (prev.attr('class') === 'ano-row') {
@@ -96,7 +98,7 @@ $(document).ready(() => {
             });
 
             $table.append(row);
-            counter++
+            counter++;
         }
 
         $('#first-section').append($table);
@@ -119,21 +121,25 @@ $(document).ready(() => {
             }
         });*/
 
-        let myUrl = `/api/v1/snippets/${to_get}/`
+        let myUrl = `/api/v1/snippets/${to_get}/`;
 
         let myHeaders = new Headers();
 
         let myInit = {
             method: 'GET',
             headers: myHeaders,
-        }
+        };
 
         fetch(myUrl, myInit).then((resp) => {
-            return resp.json()
+            return resp.json();
         }).then((data) => {
             snipFactory(data);
         }).then(() => {
             getAno();
+        }).then(() => {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
         }).catch((err) => {
             alert(err);
         });
