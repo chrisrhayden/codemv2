@@ -2,13 +2,16 @@ module.exports = {
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jquery": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
         "sourceType": "module"
     },
-    "plugins": ["dollar-sign"],
+    "plugins": [
+        "dollar-sign"
+    ],
     "rules": {
         "indent": [
             "error",
@@ -26,6 +29,9 @@ module.exports = {
             "error",
             "always"
         ],
-        "dollar-sign/dollar-sign": [2, "ignoreProperties"]
+        "dollar-sign/dollar-sign": [
+            2,
+            "ignoreProperties"
+        ]
     }
 };
