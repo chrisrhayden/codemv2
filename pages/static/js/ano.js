@@ -6,7 +6,11 @@ $(document).ready(function() {
 
         let sec = document.getElementById('second-section');
         let code = obj[0].code;
-        alert(obj[0].code);
+        alert(obj[0].code)
+
+        what += 1
+
+        let what = what
 
         let made_code = {
             view: function() {
